@@ -16,8 +16,8 @@ Secret access key- rVyTqxQc11dTf293+ex8y/YJzlneH7UkPSE+EI2p
 region: us-east-2
 
 C:\Users\vikasgond>aws configure
-AWS Access Key ID [None]: AKIAROGXZXLHAW5ZST43
-AWS Secret Access Key [None]: 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
+AWS Access Key ID [None]: xxxxxxxxxx
+AWS Secret Access Key [None]: xxxxxxxxxxxxxxx
 Default region name [None]: us-east-2
 Default output format [None]: text
 

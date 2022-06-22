@@ -1,3 +1,9 @@
+getting started with kubernates EKS-
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html
+
+configure kubectl with eks-
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started-console.html#eks-configure-kubectl
+
 create a cluster in aws eks-
 eksctl create cluster --name my-cluster --region region-code
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
@@ -20,3 +26,7 @@ kubectl logs my-java-deployment-744d4965b9-hbfcg -n eks-sample-app
 
 How do I expose the Kubernetes services running on my Amazon EKS cluster?-
 https://aws.amazon.com/premiumsupport/knowledge-center/eks-kubernetes-services-cluster/
+
+
+good github example-
+https://github.com/aws-samples/eks-multi-container-pod-logging
