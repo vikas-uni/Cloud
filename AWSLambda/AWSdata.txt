@@ -1,0 +1,96 @@
+
+lambda in java-aws-lambda
+https://docs.aws.amazon.com/lambda/latest/dg/java-handler.html
+
+key management-
+https://us-east-2.console.aws.amazon.com/kms/home?region=us-east-2#/kms/keys
+
+AWS cli-
+https://docs.aws.amazon.com/rekognition/latest/dg/setup-awscli-sdk.html
+installed-
+https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-windows.html
+
+to setup CLI-
+Access key ID- AKIAROGXZXLHAW5ZST43
+Secret access key- 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
+region: us-east-2
+
+C:\Users\vikasgond>aws configure
+AWS Access Key ID [None]: AKIAROGXZXLHAW5ZST43
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-east-2
+Default output format [None]: text
+
+AWS - upload object
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html
+https://www.tothenew.com/blog/file-upload-on-amazon-s3-server-via-rest-api-call/
+
+You can perform recursive uploads and downloads of multiple files in a single folder-level command. The AWS CLI will run these transfers in parallel for increased performance.
+$ aws s3 cp myfolder s3://mybucket/myfolder --recursive
+upload: myfolder/file1.txt to s3://mybucket/myfolder/file1.txt
+upload: myfolder/subfolder/file1.txt to s3://mybucket/myfolder/subfolder/file1.txt
+
+The following example copies a local file from your current working directory to the Amazon S3 bucket with the s3 cp command.
+aws s3 cp D:/temp/filename.txt s3://vik-test-bucket
+
+
+
+******************
+upload file-
+aws s3 cp D:/temp/copyTest.txt s3://vik-test-bucket/testFolder/
+
+Note: if destination folder at bucket doesn;t exist, the folder is automatically created
+
+download file-
+The following example copies all objects from s3://bucket-name/example to s3://my-bucket/.
+aws s3 cp s3://bucket-name/example s3://my-bucket/
+
+The following example copies a file from your Amazon S3 bucket to your current working directory, where ./ specifies your current working directory.
+aws s3 cp s3://vik-test-bucket/testCopy.txt ./
+D:\>aws s3 cp s3://vik-test-bucket/testFolder/copyTest.txt D:/temp/tmp2/
+download: s3://vik-test-bucket/testFolder/copyTest.txt to temp\tmp2\copyTest.txt
+
+
+
+***************
+setup local system expose to internet-
+https://pagekite.net/downloads
+http://viktestlocal.pagekite.me/ae/api/v1/100/executions
+
+***************************************************
+Commands-
+D:\>aws s3 cp D:/temp/copyTest5.txt s3://vik-test-bucket/testFolder/
+upload: temp\copyTest5.txt to s3://vik-test-bucket/testFolder/copyTest5.txt
+
+D:\>aws s3 cp D:/temp/tmp2/* s3://vik-test-bucket/testFolder/
+The user-provided path D:/temp/tmp2/* does not exist.
+
+D:\>aws s3 cp D:/temp/tmp2/copyTest5.txt s3://vik-test-bucket/testFolder/
+upload failed: temp\tmp2\ to s3://vik-test-bucket/testFolder/ [Errno 2] No such file or directory: 'D:\\temp\\tmp2\\'
+
+D:\>aws s3 cp D:/temp/tmp2 s3://vik-test-bucket/testFolder/
+upload failed: temp\tmp2\ to s3://vik-test-bucket/testFolder/ [Errno 2] No such file or directory: 'D:\\temp\\tmp2\\'
+
+D:\>aws s3 cp D:/temp/tmp2 s3://vik-test-bucket/testFolder/ --recursive
+upload: temp\tmp2\subfolder\pic2.jpg to s3://vik-test-bucket/testFolder/subfolder/pic2.jpg
+upload: temp\tmp2\pic.jpg to s3://vik-test-bucket/testFolder/pic.jpg
+upload: temp\tmp2\copyTest.txt to s3://vik-test-bucket/testFolder/copyTest.txt
+upload: temp\tmp2\test.log to s3://vik-test-bucket/testFolder/test.log
+upload: temp\tmp2\subfolder\copyTest7.txt to s3://vik-test-bucket/testFolder/subfolder/copyTest7.txt
+upload: temp\tmp2\copyTest5.txt to s3://vik-test-bucket/testFolder/copyTest5.txt
+upload: temp\tmp2\subfolder\test2.log to s3://vik-test-bucket/testFolder/subfolder/test2.log
+
+
+D:\>aws s3 cp D:/temp/tmp2/copyTest5.txt s3://vik-test-bucket/testFolder
+upload: temp\tmp2\copyTest5.txt to s3://vik-test-bucket/testFolder
+In above command, a folder 'testFolder' already exists, but if '/' is not provided in destination 'testFolder/' then it creates a file named testFolder and puts the contents of copyTest5.txt into that file
+
+***************************************************************
+Building Lambda functions with Java
+https://docs.aws.amazon.com/lambda/latest/dg/lambda-java.html
+
+AWS Toolkit for Eclipse
+https://docs.aws.amazon.com/toolkit-for-eclipse/v1/user-guide/lambda-tutorial.html
+
+example-
+https://www.baeldung.com/java-aws-lambda

@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.aws</groupId>
+	<artifactId>rest-app</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- Importing all SDK modules If you would like to pull in the entire SDK 
+		as a dependency, don’t use the BOM method, but simply declare it in your 
+		pom.xml like this: <dependencies> <dependency> <groupId>com.amazonaws</groupId> 
+		<artifactId>aws-java-sdk</artifactId> <version>1.11.327</version> </dependency> 
+		</dependencies> -->
+
+	<!-- To use the BOM, add a
+	<dependencyManagement>
+		section to your application’s pom.xml file, adding aws-java-sdk-bom as
+		a dependency and specifying the version of the SDK you want to use: -->
+		<dependencyManagement>
+			<dependencies>
+				<dependency>
+					<groupId>com.amazonaws</groupId>
+					<artifactId>aws-java-sdk-bom</artifactId>
+					<version>1.11.1002</version>
+					<type>pom</type>
+					<scope>import</scope>
+				</dependency>
+			</dependencies>
+		</dependencyManagement>
+
+		<!-- You can now select individual modules from the SDK that you use in 
+			your application. Because you already declared the SDK version in the BOM, 
+			you don’t need to specify the version number for each component. -->
+		<dependencies>
+			<dependency>
+				<groupId>com.amazonaws</groupId>
+				<artifactId>aws-java-sdk-s3</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>com.amazonaws</groupId>
+				<artifactId>aws-java-sdk-dynamodb</artifactId>
+			</dependency>
+			
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-iam</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk16</artifactId>
+            <version>1.45</version>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-kms</artifactId>
+         </dependency>
+		</dependencies>
+</project>

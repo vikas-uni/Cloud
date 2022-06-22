@@ -1,0 +1,7 @@
+https://www.baeldung.com/java-aws-lambda
+
+https://docs.aws.amazon.com/lambda/latest/dg/java-handler.html
+https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-events-v1sdk
+
+to build jar-
+mvn clean package shade:shade

@@ -1,0 +1,22 @@
+create a cluster in aws eks-
+eksctl create cluster --name my-cluster --region region-code
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
+
+Enable kubectl to communicate with your cluster by adding a new context to the kubectl config file-
+aws eks update-kubeconfig --region region-code --name my-cluster
+https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html
+
+deploy a sample app in eks-
+https://docs.aws.amazon.com/eks/latest/userguide/sample-deployment.html
+
+
+exec shell in a pod-
+kubectl exec -it my-java-deployment-744d4965b9-4k5tb -n eks-sample-app -- /bin/sh
+
+
+to see logs of pods-
+kubectl logs <pod> -n <namespace>
+kubectl logs my-java-deployment-744d4965b9-hbfcg -n eks-sample-app
+
+How do I expose the Kubernetes services running on my Amazon EKS cluster?-
+https://aws.amazon.com/premiumsupport/knowledge-center/eks-kubernetes-services-cluster/
