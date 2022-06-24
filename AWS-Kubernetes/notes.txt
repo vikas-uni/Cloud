@@ -24,9 +24,26 @@ to see logs of pods-
 kubectl logs <pod> -n <namespace>
 kubectl logs my-java-deployment-744d4965b9-hbfcg -n eks-sample-app
 
-How do I expose the Kubernetes services running on my Amazon EKS cluster?-
+How do I expose the Kubernetes services running on my Amazon EKS cluster?-(working)
 https://aws.amazon.com/premiumsupport/knowledge-center/eks-kubernetes-services-cluster/
-
+ other- https://aws.amazon.com/premiumsupport/knowledge-center/eks-access-kubernetes-services/
+ 
+ How do I use persistent storage in Amazon EKS?-
+ https://aws.amazon.com/premiumsupport/knowledge-center/eks-persistent-storage/
+ 
+ How to capture application logs when using Amazon EKS on AWS Fargate-
+ https://aws.amazon.com/blogs/containers/how-to-capture-application-logs-when-using-amazon-eks-on-aws-fargate/-
 
 good github example-
 https://github.com/aws-samples/eks-multi-container-pod-logging
+
+
+some important commands---
+start a container from config yml file-
+kubectl apply -f "D:\Java codes\proj\GitProjects\Cloud\AWS-Kubernetes\mongodb-depl-and-service.yml"
+
+stop the container-
+kubectl delete -f "D:\Java codes\proj\GitProjects\Cloud\AWS-Kubernetes\mongodb-depl-and-service.yml"
+
+get all nodes and services in a namespace-
+kubectl get all -n my-boot-apps
