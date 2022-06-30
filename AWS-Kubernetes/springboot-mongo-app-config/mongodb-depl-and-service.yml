@@ -1,3 +1,9 @@
+#adding a namespace. this is optional, can be created from commandline also
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-boot-apps
+---
 apiVersion: v1
 kind: ConfigMap  # this config map is not used anywhere currently
 metadata:

@@ -1,0 +1,84 @@
+steps to run minikube on local wsl2-
+  -taken from: https://github.com/cheslijones/wsl2-minikube
+----Installation-------
+
+install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+ -Install minikube for Linux in WSL2:
+ To install the latest minikube stable release on x86-64 Linux using binary download:
+ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+ sudo install minikube-linux-amd64 /usr/local/bin/minikube
+ more on this- https://minikube.sigs.k8s.io/docs/start/
+ 
+ -run command to start minikube-
+ minikube start --vm-driver=docker
+ 
+-If you already have kubectl installed, you can now use it to access your shiny new cluster:
+ kubectl get po -A
+
+-Alternatively, minikube can download the appropriate version of kubectl and you should be able to use it like this:
+ minikube kubectl -- get po -A
+ 
+-Install/enable ingress
+ minikube addons enable ingress 
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+
+--------------Deployment-------------
+ 
+-Create a sample deployment and expose it on port 8080:
+ kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
+ kubectl expose deployment hello-minikube --type=NodePort --port=8080
+
+-It may take a moment, but your deployment will soon show up when you run:
+ kubectl get services hello-minikube
+
+-The easiest way to access this service is to let minikube launch a web browser for you:
+ minikube service hello-minikube
+ 
+-To access a LoadBalancer deployment, use the “minikube tunnel” command. Here is an example deployment:
+ kubectl create deployment balanced --image=k8s.gcr.io/echoserver:1.4  
+ kubectl expose deployment balanced --type=LoadBalancer --port=8080
+
+-In another window, start the tunnel to create a routable IP for the ‘balanced’ deployment:
+ minikube tunnel
+
+-To find the routable IP, run this command and examine the EXTERNAL-IP column:
+ kubectl get services balanced
+ Your deployment is now available at <EXTERNAL-IP>:8080
+ 
+--------------Start/Stop----------------
+ 
+-Pause Kubernetes without impacting deployed applications:
+ minikube pause
+
+-Unpause a paused instance:
+ minikube unpause
+
+-Halt the cluster:
+ minikube stop
+
+-Increase the default memory limit (requires a restart):
+ minikube config set memory 16384
+
+-Browse the catalog of easily installed Kubernetes services:
+ minikube addons list
+
+-Create a second cluster running an older Kubernetes release:
+ minikube start -p aged --kubernetes-version=v1.16.1
+
+-Delete all of the minikube clusters:
+ minikube delete --all
+ 
+ -------------------minikube commands reference---------------
+ https://minikube.sigs.k8s.io/docs/commands/image/#minikube-image-load
+ 
+ ---------------------------------------------------------------
+ -------------------kubectl command reference---------------
+ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+ 
+ 
+ -----------------------------------------------
+ other sources-
+ https://www.virtualizationhowto.com/2021/11/install-minikube-in-wsl-2-with-kubectl-and-helm/
+ https://www.digitalocean.com/community/tutorials/how-to-use-minikube-for-local-kubernetes-development-and-testing
+ https://kubernetes.io/blog/2020/05/21/wsl-docker-kubernetes-on-the-windows-desktop/
