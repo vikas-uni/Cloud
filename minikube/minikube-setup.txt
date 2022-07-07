@@ -78,6 +78,15 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
  
  
  -----------------------------------------------
+ ----------some frequently used commands-------------
+ get all pods and services running in a namespace: kubectl get all -n my-boot-apps
+ get logs in a pod: kubectl logs mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
+ get details of a pod: kubectl describe pod mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
+ load image from local docker in minikube: minikube image load <imagename>
+ list all images in minikube: minikube image ls
+ execute a command in minikube environment: minikube ssh -- ls /myK8storage/data/db
+ restart a deployment: kubectl rollout restart deployment mongo-deployment
+ ----------------------------------------------------
  other sources-
  https://www.virtualizationhowto.com/2021/11/install-minikube-in-wsl-2-with-kubectl-and-helm/
  https://www.digitalocean.com/community/tutorials/how-to-use-minikube-for-local-kubernetes-development-and-testing
