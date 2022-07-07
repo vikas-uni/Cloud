@@ -86,6 +86,9 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
  list all images in minikube: minikube image ls
  execute a command in minikube environment: minikube ssh -- ls /myK8storage/data/db
  restart a deployment: kubectl rollout restart deployment mongo-deployment
+ mount a local directory to minikube: https://stackoverflow.com/questions/48534980/mount-local-directory-into-pod-in-minikube#:~:text=You%20can't%20mount%20your,com%2Fnginx%20into%20your%20minikube.&text=Then%20If%20you%20mount%20%2Fdata,local%20directory%20data%20into%20Pod.
+ https://stackoverflow.com/questions/63559779/kubernetes-minikube-persistent-volume-local-filesystem-storage-location
+ https://minikube.sigs.k8s.io/docs/handbook/mount/
  ----------------------------------------------------
  other sources-
  https://www.virtualizationhowto.com/2021/11/install-minikube-in-wsl-2-with-kubectl-and-helm/
