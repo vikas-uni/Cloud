@@ -79,16 +79,33 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
  
  -----------------------------------------------
  ----------some frequently used commands-------------
- get all pods and services running in a namespace: kubectl get all -n my-boot-apps
- get logs in a pod: kubectl logs mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
- get details of a pod: kubectl describe pod mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
- load image from local docker in minikube: minikube image load <imagename>
- list all images in minikube: minikube image ls
- execute a command in minikube environment: minikube ssh -- ls /myK8storage/data/db
- restart a deployment: kubectl rollout restart deployment mongo-deployment
+ get all pods and services running in a namespace: 
+ kubectl get all -n my-boot-apps
+ 
+ get logs in a pod: 
+ kubectl logs mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
+ 
+ get details of a pod: 
+ kubectl describe pod mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
+ 
+ load image from local docker in minikube: 
+ minikube image load <imagename>
+ 
+ list all images in minikube: 
+ minikube image ls
+ 
+ execute a command in minikube environment: 
+ minikube ssh -- ls /myK8storage/data/db
+ 
+ restart a deployment: 
+ kubectl rollout restart deployment mongo-deployment
+ 
  mount a local directory to minikube: https://stackoverflow.com/questions/48534980/mount-local-directory-into-pod-in-minikube#:~:text=You%20can't%20mount%20your,com%2Fnginx%20into%20your%20minikube.&text=Then%20If%20you%20mount%20%2Fdata,local%20directory%20data%20into%20Pod.
  https://stackoverflow.com/questions/63559779/kubernetes-minikube-persistent-volume-local-filesystem-storage-location
  https://minikube.sigs.k8s.io/docs/handbook/mount/
+ 
+ delete your old Kubernetes deployment then deploy your updated deployment:
+ kubectl replace --force -f kubernetes.yaml
  ----------------------------------------------------
  other sources-
  https://www.virtualizationhowto.com/2021/11/install-minikube-in-wsl-2-with-kubectl-and-helm/
