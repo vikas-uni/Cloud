@@ -1,0 +1,4 @@
+source-
+
+https://stackoverflow.com/questions/44651219/kafka-deployment-on-minikube
+https://levelup.gitconnected.com/how-to-deploy-apache-kafka-with-kubernetes-9bd5caf7694f
