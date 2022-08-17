@@ -11,6 +11,14 @@ https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-extern
 further reading on wsl2 ssh-
 https://superuser.com/questions/1622581/ssh-into-wsl-from-another-machine-on-the-network/1622603#1622603
 
+kali linux with gui on windows-
+https://www.youtube.com/watch?v=AfVH54edAHU
+
+backup and restore WSL-
+https://www.xda-developers.com/how-back-up-restore-wsl/
+https://www.virtualizationhowto.com/2021/01/wsl2-backup-and-restore-images-using-import-and-export/
+https://medium.com/@gulfsteve/hacking-with-wsl2-ede3e649e08d
+
 --------------------------------------
 
 open cmd, type wsl and press enter
