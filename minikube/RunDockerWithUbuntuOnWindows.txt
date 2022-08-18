@@ -34,6 +34,8 @@ Next, from the same Administrator Windows prompt, open an incoming Firewall Port
 
 netsh advfirewall firewall add rule name=”Open Port 2222 for WSL2” dir=in action=allow protocol=TCP localport=2222
 
+run ssh service- sudo service ssh start
+
 now you can connect to terminal using winscp
 
 run docker on wsl- sudo service docker start
@@ -49,7 +51,8 @@ https://medium.com/@riley.kao/wsl2-ubuntu20-04-gui-remote-desktop-connection-rdp
 https://www.youtube.com/watch?v=IL7Jd9rjgrM
 https://dev.to/darksmile92/linux-on-windows-wsl-with-desktop-environment-via-rdp-522g
 
-summary- In Ubuntu WSL:
+summary- 
+In Ubuntu WSL:
 sudo apt-get purge xrdp
 
 then
