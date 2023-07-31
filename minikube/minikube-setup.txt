@@ -1,3 +1,5 @@
+ minikube is local Kubernetes - it runs a single-node Kubernetes cluster on your personal computer so that you can try out Kubernetes.
+
 steps to run minikube on local wsl2-
   -taken from: https://github.com/cheslijones/wsl2-minikube
 ----Installation-------
@@ -45,6 +47,21 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
 -To find the routable IP, run this command and examine the EXTERNAL-IP column:
  kubectl get services balanced
  Your deployment is now available at <EXTERNAL-IP>:8080
+
+-Tolist all services
+ minikube service list
+
+Note: deployment can also be done via kubectl yaml deployment-
+ kubectl apply -f "D:\Java codes\proj\GitProjects\Cloud\AWS-Kubernetes\my-java-app.yaml"
+
+-if deployed through kubectl yaml deployment
+ kubectl get service <service-name> -n <namespace>
+ kubectl get service  my-java-loadbalancer -n eks-sample-app
+output:
+NAME                   TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)          AGE
+my-java-loadbalancer   LoadBalancer   10.99.84.79   127.0.0.1     8080:31780/TCP   6m27s
+
+Your deployment is now available at <EXTERNAL-IP>:8080
  
 --------------Start/Stop----------------
  
@@ -84,6 +101,9 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
  
  get logs in a pod: 
  kubectl logs mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
+
+ tail logs:
+ kubectl logs my-java-deployment-57d77479df-4v678 -n eks-sample-app -f
  
  get details of a pod: 
  kubectl describe pod mongo-deployment-7dd7848dbb-lbvqg -n my-boot-apps
@@ -100,7 +120,8 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
  restart a deployment: 
  kubectl rollout restart deployment mongo-deployment
  
- mount a local directory to minikube: https://stackoverflow.com/questions/48534980/mount-local-directory-into-pod-in-minikube#:~:text=You%20can't%20mount%20your,com%2Fnginx%20into%20your%20minikube.&text=Then%20If%20you%20mount%20%2Fdata,local%20directory%20data%20into%20Pod.
+ mount a local directory to minikube: 
+https://stackoverflow.com/questions/48534980/mount-local-directory-into-pod-in-minikube#:~:text=You%20can't%20mount%20your,com%2Fnginx%20into%20your%20minikube.&text=Then%20If%20you%20mount%20%2Fdata,local%20directory%20data%20into%20Pod.
  https://stackoverflow.com/questions/63559779/kubernetes-minikube-persistent-volume-local-filesystem-storage-location
  https://minikube.sigs.k8s.io/docs/handbook/mount/
  

@@ -1,4 +1,5 @@
 #adding a namespace. this is optional, can be created from commandline also
+#when deployed in local minikube, service is accessible at-  http://127.0.0.1:8080/echo/dasda
 apiVersion: v1
 kind: Namespace
 metadata:
