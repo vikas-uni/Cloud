@@ -26,17 +26,16 @@ wsl will prompt for password, pw is - vikasgond
 on terminal, type command- service ssh start
 From within WSL2 get your IP address using "ifconfig."
 
-Now, from an Administrator Windows prompt - that can be cmd.exe or powershell.exe, it doesn't matter, use the net shell "netsh" to add a portproxy rule. Again, change connectaddress to YOUR WSL2 ipaddress, which is an internal address to your machine.
+1- Now, from an Administrator Windows prompt - that can be cmd.exe or powershell.exe, it doesn't matter, use the net shell "netsh" to add a portproxy rule. Again, change connectaddress to YOUR WSL2 ipaddress, which is an internal address to your machine.
 
-netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2200 connectaddress=172.23.129.80 connectport=2200
+2- netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2200 connectaddress=172.23.129.80 connectport=2200
 
-Next, from the same Administrator Windows prompt, open an incoming Firewall Port. You can do it from the Advanced Firewall Settings, but even easier you can use netsh again!
-
+3- Next, from the same Administrator Windows prompt, open an incoming Firewall Port. You can do it from the Advanced Firewall Settings, but even easier you can use netsh again!
 netsh advfirewall firewall add rule name=”Open Port 2222 for WSL2” dir=in action=allow protocol=TCP localport=2222
 
 run ssh service- sudo service ssh start
 
-now you can connect to terminal using winscp
+now you can connect to terminal using winscp (Note: steps 1 to 3 is one time process. In case it doesn't works try again)
 
 run docker on wsl- sudo service docker start
 
