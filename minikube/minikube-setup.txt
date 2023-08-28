@@ -12,6 +12,9 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
  sudo install minikube-linux-amd64 /usr/local/bin/minikube
  more on this- https://minikube.sigs.k8s.io/docs/start/
  
+ -first, run docker
+ sudo service docker start
+ 
  -run command to start minikube-
  minikube start --vm-driver=docker
  
@@ -24,6 +27,9 @@ install kubectl(already done)-https://kubernetes.io/docs/tasks/tools/install-kub
 -Install/enable ingress
  minikube addons enable ingress 
  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+
+-to show minikube dashboard-
+minikube dashboard
 
 --------------Deployment-------------
  
