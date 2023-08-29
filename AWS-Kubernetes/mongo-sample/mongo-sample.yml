@@ -106,7 +106,7 @@ metadata:
   name: mongoexpress-service
 spec:
   selector:
-    app: mongoexpress-deployment
+    app: mongoexpress
   type: LoadBalancer
   ports:
     - protocol: TCP

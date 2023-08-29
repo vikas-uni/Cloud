@@ -1,0 +1,2 @@
+this is a sample deployment for mongodb and mongo-express.
+the mongo-express can ve aceessible when running on minikube via load balancer in 127.0.0.1:8081
