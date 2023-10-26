@@ -1,4 +1,5 @@
 # this is a sample mongo deployment with secrets
+#user: admin , password : pass
 apiVersion: v1
 kind: Secret
 metadata:
@@ -33,6 +34,7 @@ spec:
     spec:
       containers:
         - name: mongo-express
+          imagePullPolicy: IfNotPresent #Never  #IfNotPresent
           image: mongo-express
           ports:
             - containerPort: 8081
@@ -73,6 +75,7 @@ spec:
     spec:
       containers:
         - name: mongodb
+          imagePullPolicy: IfNotPresent #Never  #IfNotPresent
           image: mongo
           ports:
             - containerPort: 27017
